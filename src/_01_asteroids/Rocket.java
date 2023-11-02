@@ -33,9 +33,9 @@ public class Rocket implements GameControlScene {
 	 * 
 	 * With this you can run the game. use WASD to move and SPACE to fire
 	 */
-	public Rocket() {
-		x = AsteroidsGame.WIDTH/2;
-		y = AsteroidsGame.HEIGHT/2;
+	public Rocket(int x, int y) {
+		this.x = x;
+		this.y = y;
 		size = 10;
 		collisionBox = new Rectangle(x -size / 2, y - size / 2, size, size);
 	}
@@ -61,7 +61,7 @@ public class Rocket implements GameControlScene {
 		Graphics2D graphics2D = (Graphics2D) g;
 		graphics2D.rotate(Math.toRadians(angle), x, y);
 		graphics2D.setColor(Color.WHITE);
-		graphics2D.draw(collisionBox);
+		graphics2D.drawPolygon(new int[] {x,x-5,x+5}, new int[] {y-10,y+10,y+10}, 3);
 		graphics2D.rotate(-Math.toRadians(angle), x, y);
 
 	}
